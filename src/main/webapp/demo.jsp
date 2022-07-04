@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>JDBC Connection Example</title>
+    <button class="btn btn-lg btn-primary" id="submit" onclick="location.href ='/Library_war/index.jsp'" >Go To Dashboard</button>
 </head>
 <body>
 <h1> JDBC Connection Example </h1>
@@ -33,4 +34,5 @@
 %>
 
 </body>
+
 </html>
