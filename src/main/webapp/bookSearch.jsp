@@ -28,7 +28,7 @@
         Statement stmt=con.createStatement();
         ResultSet rs=stmt.executeQuery("select * from Student");
         while(rs.next())
-            out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+            out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3) +"3");
         con.close();
     }catch(Exception e){ out.println(e);}
 %>
