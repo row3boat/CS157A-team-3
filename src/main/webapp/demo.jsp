@@ -19,7 +19,7 @@
         /**
          * CHANGE THIS LINE TO PUT YOUR OWN DATABASE NAME, OWN USER, OWN PASSWORD.
          */
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ XXXPUTDBNAMEHEREXXX?autoReconnect=true&useSSL=false","PUT_USER_HERE","PUT_PASSWORD_HERE");
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ Pansare?autoReconnect=true&useSSL=false","root","dragon165");
         /**
          * CHANGE THE ABOVE LINE!
          */

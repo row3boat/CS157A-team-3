@@ -16,7 +16,13 @@
 <%
     try{
         Class.forName("com.mysql.jdbc.Driver");
+        /**
+         * CHANGE THIS LINE TO PUT YOUR OWN DATABASE NAME, OWN USER, OWN PASSWORD.
+         */
         Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ Pansare?autoReconnect=true&useSSL=false","root","dragon165");
+        /**
+         * CHANGE THE ABOVE LINE!
+         */
 //here wu is database name, root is username and password
         Statement stmt=con.createStatement();
         ResultSet rs=stmt.executeQuery("select * from Student");
