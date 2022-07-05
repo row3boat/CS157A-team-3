@@ -21,7 +21,6 @@ Keyword: <input type="text" name="keyword">
 </form>
 
 <form action="index.jsp">
-
 <input type="submit" value="Back" />
 </form>
 
