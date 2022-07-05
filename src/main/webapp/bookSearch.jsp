@@ -20,13 +20,13 @@
         /**
          * CHANGE THIS LINE TO PUT YOUR OWN DATABASE NAME, OWN USER, OWN PASSWORD.
          */
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ Pansare?autoReconnect=true&useSSL=false","root","dragon165");
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project?autoReconnect=true&useSSL=false","root","fb22abhinavindia#3");
         /**
          * CHANGE THE ABOVE LINE!
          */
 //here wu is database name, root is username and password
         Statement stmt=con.createStatement();
-        ResultSet rs=stmt.executeQuery("select * from Student");
+        ResultSet rs=stmt.executeQuery("select * from customer");
         while(rs.next())
             out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3) +"3");
         con.close();
