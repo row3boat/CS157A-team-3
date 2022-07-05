@@ -15,6 +15,7 @@
 <body>
 <h1>Searching Books in Library Database</h1>
 
+
 <form action="bookSearchResult.jsp" method="GET">
 Keyword: <input type="text" name="keyword">
 <input type="submit" value="Search" />
