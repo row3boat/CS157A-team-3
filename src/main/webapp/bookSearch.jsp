@@ -1,38 +1,25 @@
 <%--
   Created by IntelliJ IDEA.
-  User: rowanpansare
-  Date: 6/12/22
+  User: Lam Pham
+  Date: 7/4/22
   Time: 4:16 PM
-  To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.sql.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %> <html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>JDBC Connection Example</title>
-    <button class="btn btn-lg btn-primary" id="submit" onclick="location.href ='/Library_war/index.jsp'" >Go To Dashboard</button>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Searching Book</title>
 </head>
 <body>
-<h1> JDBC Connection Example </h1>
-<%
-    try{
-        Class.forName("com.mysql.jdbc.Driver");
-        /**
-         * CHANGE THIS LINE TO PUT YOUR OWN DATABASE NAME, OWN USER, OWN PASSWORD.
-         */
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ Pansare?autoReconnect=true&useSSL=false","root","dragon165");
-        /**
-         * CHANGE THE ABOVE LINE!
-         */
-//here wu is database name, root is username and password
-        Statement stmt=con.createStatement();
-        ResultSet rs=stmt.executeQuery("select * from Student");
-        while(rs.next())
-            out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
-        con.close();
-    }catch(Exception e){ out.println(e);}
-%>
+<h1>Searching Books in Library Database</h1>
+
+<form action="bookSearch.jsp" method="GET">
+Keyword: <input type="text" name="keyword">
+<input type="submit" value="Search" />
+</form>
 
 </body>
-
 </html>
