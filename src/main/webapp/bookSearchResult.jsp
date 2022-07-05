@@ -35,9 +35,11 @@
 	
 		Statement statement = connection.createStatement();
 		
-		String select = "*";
+		String select = "DISTINCT *";
 		String from = "Library.book";
-		String where = "book.author = '" + keyword + "'";
+		String where = "name LIKE '%" + keyword + "%'" +
+				" OR " + "genre LIKE '%" + keyword + "%'" +
+				" OR " + "author LIKE '%" + keyword + "%'";
 		String querySql = "SELECT " + select + " FROM " + from + " WHERE " + where + ";";
 		
 		ResultSet rs = statement.executeQuery(querySql);
@@ -46,7 +48,7 @@
 		out.println("<br>" + "Searching Results:");
 		while (rs.next())
 		{
-			out.println("<br>" + rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
+			out.println("<br>" + rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4) + " " + rs.getDate(5));
 			flag = true;
 		}
 		

@@ -20,5 +20,10 @@ Keyword: <input type="text" name="keyword">
 <input type="submit" value="Search" />
 </form>
 
+<form action="index.jsp">
+
+<input type="submit" value="Back" />
+</form>
+
 </body>
 </html>
