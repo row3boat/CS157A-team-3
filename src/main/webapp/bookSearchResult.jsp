@@ -43,18 +43,24 @@
 		String querySql = "SELECT " + select + " FROM " + from + " WHERE " + where + ";";
 		
 		ResultSet rs = statement.executeQuery(querySql);
-		boolean flag = false;
+		boolean flagResult = false;
 		
-		out.println("<br>" + "Searching Results:");
+		out.println("<br>");
 		while (rs.next())
 		{
-			out.println("<br>" + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4) + " " + rs.getDate(5));
-			flag = true;
+			out.println("<b>" + rs.getString(2) + "</b><br>");
+			out.println(rs.getString(3) + "<br>");
+			out.println(rs.getString(4) + "<br>");
+			out.println(rs.getDate(5) + "<br>");
+			out.println("<br><br>");
+			
+			
+			flagResult = true;
 		}
 		
-		if (flag == false)
+		if (flagResult == false)
 		{
-			out.println ("N/A");
+			out.println("<b>Not Available</b>");
 		}
 		
 		connection.close();
