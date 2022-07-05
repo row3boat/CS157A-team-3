@@ -1,12 +1,14 @@
-
+<%-- 
+    Document   : Login
+    Created on : 28 Feb, 2015, 8:50:26 AM
+    Author     : Lahaul Seth
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <title>Login with JSP</title>
-
+        <title>Login</title>
     </head>
     <body>
         <form method="post" action="LoginValidate.jsp">
@@ -14,7 +16,7 @@
             <table border="1" cellpadding="5" cellspacing="2">
                 <thead>
                     <tr>
-                        <th colspan="2">User Login Here</th>
+                        <th colspan="2">Login Here</th>
                     </tr>
                 </thead>
                 <tbody>
