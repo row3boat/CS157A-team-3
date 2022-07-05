@@ -14,7 +14,7 @@
         Class.forName("com.mysql.jdbc.Driver");        
         final String url = "jdbc:mysql:///Library";
         final String user = "root";
-        final String password1 = "dragon165";
+        final String password1 = "root";
 
    		      
 
