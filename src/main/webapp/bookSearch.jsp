@@ -1,6 +1,5 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: Lam Pham
+  Author: Lam Pham
   Date: 7/4/22
   Time: 4:16 PM
 --%>
@@ -16,7 +15,7 @@
 <body>
 <h1>Searching Books in Library Database</h1>
 
-<form action="bookSearch.jsp" method="GET">
+<form action="bookSearchResult.jsp" method="GET">
 Keyword: <input type="text" name="keyword">
 <input type="submit" value="Search" />
 </form>
