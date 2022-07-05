@@ -34,4 +34,11 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/WEB-INF/mysql-connector-java-8.0.29.jar</name>
+			<type>1</type>
+			<location>C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.29.jar</location>
+		</link>
+	</linkedResources>
 </projectDescription>
