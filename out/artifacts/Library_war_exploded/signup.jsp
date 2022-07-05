@@ -1,38 +1,17 @@
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: rowanpansare
+  Date: 7/3/22
+  Time: 10:18 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>sign-up with JSP</title>
-    </head>
-    <body>
-        <form method="post" action="signupValidate.jsp">
-            <center>
-            <table border="1" cellpadding="5" cellspacing="2">
-                <thead>
-                    <tr>
-                        <th colspan="2">Register Here</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Username</td>
-                        <td><input type="text" name="username" required/></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password" required/></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" align="center"><input type="submit" value="Login" />
-                            &nbsp;&nbsp;
-                          
-                        </td>                        
-                    </tr>                    
-                </tbody>
-            </table>
-            </center>
-        </form>
-    </body>
+<head>
+    Signup
+    <title>Title</title>
+</head>
+<body>
+
+</body>
 </html>
