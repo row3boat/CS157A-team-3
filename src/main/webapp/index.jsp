@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>eLib!</title>
 </head>
 <style>
     h1 {
@@ -63,7 +63,7 @@
 <body>
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 <h1>
-    <%= "Welcome to eLib!" %>
+    <%= "Welcome to eLib" %>
     <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Click to search books in stock.
     </button>
 </h1>
@@ -87,7 +87,6 @@
             /**
              * CHANGE THE ABOVE LINE!
              */
-//here wu is database name, root is username and password
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery("SELECT Book.name AS Bestseller, COUNT(Checked_Out.book_id) AS Total_Checked_Out " +
                     "FROM Library.Checked_Out, Library.Book WHERE Library.Checked_Out.book_id = Library.Book.book_id " +
