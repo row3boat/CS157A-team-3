@@ -1,14 +1,18 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.sql.*"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ <%@ page import="java.sql.*"%>
+<!DOCTYPE html>
 <html>
-<body> 
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
 <%  
     try{
     	 
-        String username = request.getParameter("username");   
-        String password = request.getParameter("password");
+        String title = request.getParameter("title");   
+        
         
 
         Class.forName("com.mysql.jdbc.Driver");        
@@ -21,17 +25,19 @@
         // establish the connection
         Connection con = DriverManager.getConnection(url, user, password1);   
    		       
-
-        PreparedStatement pst = con.prepareStatement("Select username,password from user where username=? and password=?");
-        pst.setString(1, username);
-        pst.setString(2, password);
-   		       
+		String query = "SELECT number_of_copies" +
+				"FROM inventory, book " +
+				"WHERE inventory.ISBN = book.isbn" +
+				"AND name = Rowan's Book" ;
+        PreparedStatement pst = con.prepareStatement(query);
+        pst.setString(1, title);
+               
 
         ResultSet rs = pst.executeQuery();  
    		       
 
         if(rs.next())           
-           response.sendRedirect("userHomePage.jsp");        
+           out.println(rs);        
         else
            response.sendRedirect("ErrorMessage.jsp");     
    }
@@ -39,5 +45,5 @@
    		out.println(e.getMessage());       
    }  
 %>
- </body>
- </html>
+</body>
+</html>
