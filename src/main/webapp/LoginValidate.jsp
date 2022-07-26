@@ -12,7 +12,11 @@
         
 
         Class.forName("com.mysql.jdbc.Driver");        
+<<<<<<< HEAD
         final String url = "jdbc:mysql:///Library";
+=======
+        final String url = "jdbc:mysql:///library";
+>>>>>>> refs/heads/Abhinav
         final String user = "root";
         final String password1 = "root";
 
@@ -22,7 +26,11 @@
         Connection con = DriverManager.getConnection(url, user, password1);   
    		       
 
+<<<<<<< HEAD
         PreparedStatement pst = con.prepareStatement("Select username,password from Library.user where username=? and password=?");
+=======
+        PreparedStatement pst = con.prepareStatement("Select username,password from user where username=? and password=?");
+>>>>>>> refs/heads/Abhinav
         pst.setString(1, username);
         pst.setString(2, password);
    		       
@@ -31,9 +39,9 @@
    		       
 
         if(rs.next())           
-           out.println("Valid login credentials");        
+           response.sendRedirect("userHomePage.jsp");        
         else
-           out.println("Invalid login credentials");            
+           response.sendRedirect("ErrorMessage.jsp");     
    }
    catch(SQLException e){       
    		out.println(e.getMessage());       

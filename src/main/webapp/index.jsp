@@ -3,7 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
     <title>eLib!</title>
+=======
+    <title>JSP - TitleScreen</title>
+>>>>>>> refs/heads/Abhinav
 </head>
 <style>
     h1 {
@@ -62,20 +66,34 @@
 </style>
 <body>
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
+<<<<<<< HEAD
 <h1>
     <%= "Welcome to eLib" %>
     <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Click to search books in stock.
     </button>
 </h1>
+=======
+>>>>>>> refs/heads/Abhinav
 
-<ul class="login">
+
+
+<ul class="User Login">
     <li>
+    	User Login
         <button name="b1" onclick="location.href ='login.jsp'">Click to login.</button>
     </li>
     <li>
         <button name="b1" onclick="location.href ='signup.jsp'">Click to create an account.</button>
     </li>
 </ul>
+
+<u2 class="Librarian Login">
+    <li>
+    	Librarian Login
+        <button name="b1" onclick="location.href ='librarianLogin.jsp'">Click to login.</button>
+    </li>
+    
+</u2>
 <h2> Bestsellers List:
     <%
         try{
