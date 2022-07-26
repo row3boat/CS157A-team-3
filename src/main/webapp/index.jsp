@@ -3,11 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
-    <title>eLib!</title>
-=======
+
     <title>JSP - TitleScreen</title>
->>>>>>> refs/heads/Abhinav
+
 </head>
 <style>
     h1 {
@@ -66,14 +64,6 @@
 </style>
 <body>
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
-<<<<<<< HEAD
-<h1>
-    <%= "Welcome to eLib" %>
-    <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Click to search books in stock.
-    </button>
-</h1>
-=======
->>>>>>> refs/heads/Abhinav
 
 
 

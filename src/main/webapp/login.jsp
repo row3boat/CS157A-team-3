@@ -4,11 +4,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
-        <title>Login</title>
-=======
+
         <title>Login with JSP</title>
->>>>>>> refs/heads/Abhinav
+
     </head>
     <body>
         <form method="post" action="LoginValidate.jsp">
