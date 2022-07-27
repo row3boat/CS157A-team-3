@@ -5,7 +5,7 @@
 <head>
 
     <title>eLib!</title>
-<% session.invalidate();%>
+
 </head>
 <style>
     h1 {
@@ -65,21 +65,18 @@
 <body>
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 <h1>
-    <%= "Welcome to eLib" %>
-    <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Click to search books in stock.
-    </button>
-</h1>
+    <%= "Welcome to eLib, " + session.getAttribute("username") + "!" %>
+</>
+
+<h2>
+    <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Click to checkout books.</button>
+    <button name="b1" class="search-button" onclick="location.href ='checkin.jsp'">Click to view your books.</button>
+</h2>
 
 
 <ul class="login">
     <li>
-        <button name="b1" onclick="location.href ='login.jsp'">Click to login.</button>
-    </li>
-    <li>
-        <button name="b2" onclick="location.href ='signup.jsp'">Click to create an account.</button>
-    </li>
-    <li>
-        <button name="b3" onclick="location.href ='librarianLogin.jsp'">Librarian Login.</button>
+        <button name="b1" onclick="location.href ='index.jsp'">Click to logout.</button>
     </li>
 </ul>
 
@@ -100,22 +97,22 @@
                     "WHERE checked_out.checkout_date >= ( CURDATE() - INTERVAL 30 DAY ) AND checked_out.inventory_id = inventory.inventory_id AND inventory.ISBN = book.ISBN " +
                     "GROUP BY checked_out.inventory_id " +
                     "ORDER BY Total_Checked_Out desc LIMIT 3");
-            %>
+    %>
     <table>
         <tr><th>Title</th><th>Number Checked Out</th></tr>
-    <%
+        <%
             while(rs.next()){
-                %>
-            <tr><td> <%=rs.getString(1)%></td><td><%=rs.getInt(2)%></td></tr>
-    <%
+        %>
+        <tr><td> <%=rs.getString(1)%></td><td><%=rs.getInt(2)%></td></tr>
+        <%
             }
-            %>
+        %>
     </table>
-<%
-    con.close();
+    <%
+            con.close();
         }catch(Exception e){ out.println(e);}
     %>
-</h2>
+
 
 </body>
 </html>

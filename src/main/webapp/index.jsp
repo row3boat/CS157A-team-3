@@ -4,8 +4,8 @@
 <html>
 <head>
 
-    <title>JSP - TitleScreen</title>
-
+    <title>eLib!</title>
+<% session.invalidate();%>
 </head>
 <style>
     h1 {
@@ -64,27 +64,26 @@
 </style>
 <body>
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
+<h1>
+    <%= "Welcome to eLib" %>
+    <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Click to search books in stock.
+    </button>
+</h1>
 
 
-
-<ul class="User Login">
+<ul class="login">
     <li>
-    	User Login
         <button name="b1" onclick="location.href ='login.jsp'">Click to login.</button>
     </li>
     <li>
-        <button name="b1" onclick="location.href ='signup.jsp'">Click to create an account.</button>
+        <button name="b2" onclick="location.href ='signup.jsp'">Click to create an account.</button>
+    </li>
+    <li>
+        <button name="b3" onclick="location.href ='librarianLogin.jsp'">Librarian Login.</button>
     </li>
 </ul>
 
-<u2 class="Librarian Login">
-    <li>
-    	Librarian Login
-        <button name="b1" onclick="location.href ='librarianLogin.jsp'">Click to login.</button>
-    </li>
-    
-</u2>
-<h2> Bestsellers List:
+<h2> Most Checked Out This Month:
     <%
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -96,9 +95,11 @@
              * CHANGE THE ABOVE LINE!
              */
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery("SELECT Book.name AS Bestseller, COUNT(Checked_Out.book_id) AS Total_Checked_Out " +
-                    "FROM Library.Checked_Out, Library.Book WHERE Library.Checked_Out.book_id = Library.Book.book_id " +
-                    "GROUP BY Library.Checked_Out.book_id ORDER BY Total_Checked_Out desc LIMIT 3");
+            ResultSet rs=stmt.executeQuery("SELECT book.name AS Bestseller, COUNT(checked_out.inventory_id) AS Total_Checked_Out " +
+                    "FROM Library.checked_out, Library.book, Library.inventory " +
+                    "WHERE checked_out.checkout_date >= ( CURDATE() - INTERVAL 30 DAY ) AND checked_out.inventory_id = inventory.inventory_id AND inventory.ISBN = book.ISBN " +
+                    "GROUP BY checked_out.inventory_id " +
+                    "ORDER BY Total_Checked_Out desc LIMIT 3");
             %>
     <table>
         <tr><th>Title</th><th>Number Checked Out</th></tr>

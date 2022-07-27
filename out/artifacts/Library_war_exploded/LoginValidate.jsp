@@ -22,18 +22,20 @@
         Connection con = DriverManager.getConnection(url, user, password1);   
    		       
 
-        PreparedStatement pst = con.prepareStatement("Select username,password from Library.user where username=? and password=?");
+        PreparedStatement pst = con.prepareStatement("Select username,password,user_id from Library.user where username=? and password=?");
         pst.setString(1, username);
         pst.setString(2, password);
-   		       
 
-        ResultSet rs = pst.executeQuery();  
-   		       
 
-        if(rs.next())           
-           out.println("Valid login credentials");        
+        ResultSet rs = pst.executeQuery();
+
+        if(rs.next()) {
+            response.sendRedirect("userHomePage.jsp");
+            session.setAttribute("username",username);
+            session.setAttribute("userid", rs.getString(3));
+        }
         else
-           out.println("Invalid login credentials");            
+           response.sendRedirect("ErrorMessage.jsp");     
    }
    catch(SQLException e){       
    		out.println(e.getMessage());       
