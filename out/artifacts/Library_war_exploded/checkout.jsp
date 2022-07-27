@@ -9,28 +9,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Searching Book</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Searching Book</title>
 </head>
 <body>
 <h1>Searching Books in Library Database</h1>
 
 
 <form action="bookSearchResult.jsp" method="GET">
-Keyword: <input type="text" name="keyword">
-<input type="submit" value="Search" />
+    Keyword: <input type="text" name="keyword">
+    <input type="submit" value="Search" />
 </form>
 
-<% if (session.getAttribute("userid") == null){ %>
 <form action="index.jsp">
-<input type="submit" value="Back" />
+    <input type="submit" value="Back" />
 </form>
-<% } else { %>
-<form action="userHomePage.jsp">
-<input type="submit" value="Back" />
-</form>
-    <%
-}
-%>
+
 </body>
 </html>
