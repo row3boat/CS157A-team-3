@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		Invalid login credentials or username already taken. Please try again. 
+		There has been an error. Please try again. 
       <button name="Error" onclick="location.href ='index.jsp'">Back to HomeScreen</button> 
 
 </body>
