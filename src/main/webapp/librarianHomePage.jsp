@@ -11,6 +11,9 @@
     <%= "Librarian Home Page!" %>
     <button name="b1" class="search-button" onclick="location.href ='addBook.jsp'">Click to add a book to the database.
     <button name="b2" class="search-button" onclick="location.href ='deleteBook.jsp'">Click to delete a book from the database.
+    <button name="b3" class="search-button" onclick="location.href ='addLibrarian.jsp'">Click to add a new librarian.
+    <button name="b4" class="search-button" onclick="location.href ='revokeLibrarian.jsp'">Click to delete a librarian.
+    
     
     </button>
 </h1>
