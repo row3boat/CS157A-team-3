@@ -1,11 +1,40 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*"%>
+<%@ page import="java.time.LocalDate" %>
 <!DOCTYPE html>
 <html>
 <head>
 
     <title>eLib!</title>
-<% session.invalidate();%>
+<% //dear programming father in heaven, forgive me my sins
+    session.invalidate();
+
+    try{
+
+        Class.forName("com.mysql.jdbc.Driver");
+        final String url = "jdbc:mysql:///Library";
+        final String user = "root";
+        final String password = "root";
+
+        // establish the connection
+        Connection con = DriverManager.getConnection(url, user, password);
+        PreparedStatement pst = con.prepareStatement("DELETE " +
+                "FROM Library.checked_out " +
+                "WHERE checkout_date <= ?");
+
+        pst.setDate(1, Date.valueOf(LocalDate.now().minusWeeks(2)));
+
+        pst.executeUpdate();
+    }
+    catch(SQLException e){
+        out.println(e.getMessage());
+    }
+
+
+
+
+
+%>
 </head>
 <style>
     h1 {
@@ -116,6 +145,8 @@
         }catch(Exception e){ out.println(e);}
     %>
 </h2>
+
+
 
 </body>
 </html>
