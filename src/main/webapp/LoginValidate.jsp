@@ -13,8 +13,10 @@
 
         Class.forName("com.mysql.jdbc.Driver");        
 
+
               
         final String url = "jdbc:mysql:///library";
+
         final String user = "root";
         final String password1 = "fb22abhinavindia#3";
 
@@ -25,17 +27,21 @@
    		       
 
 
+
         PreparedStatement pst = con.prepareStatement("Select username,password from user where username=? and password=?");
+
 
         pst.setString(1, username);
         pst.setString(2, password);
-   		       
 
-        ResultSet rs = pst.executeQuery();  
-   		       
 
-        if(rs.next())           
-           response.sendRedirect("userHomePage.jsp");        
+        ResultSet rs = pst.executeQuery();
+
+        if(rs.next()) {
+            response.sendRedirect("userHomePage.jsp");
+            session.setAttribute("username",username);
+            session.setAttribute("userid", rs.getString(3));
+        }
         else
            response.sendRedirect("ErrorMessage.jsp");     
    }

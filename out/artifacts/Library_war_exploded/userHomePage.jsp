@@ -1,40 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.sql.*"%>
-<%@ page import="java.time.LocalDate" %>
 <!DOCTYPE html>
 <html>
 <head>
 
     <title>eLib!</title>
-<% //dear programming father in heaven, forgive me my sins
-    session.invalidate();
 
-    try{
-
-        Class.forName("com.mysql.jdbc.Driver");
-        final String url = "jdbc:mysql:///Library";
-        final String user = "root";
-        final String password = "root";
-
-        // establish the connection
-        Connection con = DriverManager.getConnection(url, user, password);
-        PreparedStatement pst = con.prepareStatement("DELETE " +
-                "FROM Library.checked_out " +
-                "WHERE checkout_date <= ?");
-
-        pst.setDate(1, Date.valueOf(LocalDate.now().minusWeeks(2)));
-
-        pst.executeUpdate();
-    }
-    catch(SQLException e){
-        out.println(e.getMessage());
-    }
-
-
-
-
-
-%>
 </head>
 <style>
     h1 {
@@ -94,21 +65,18 @@
 <body>
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 <h1>
-    <%= "Welcome to eLib" %>
-    <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Click to search books in stock.
-    </button>
-</h1>
+    <%= "Welcome to eLib, " + session.getAttribute("username") + "!" %>
+</>
+
+<h2>
+    <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Click to checkout books.</button>
+    <button name="b1" class="search-button" onclick="location.href ='checkin.jsp'">Click to view your books.</button>
+</h2>
 
 
 <ul class="login">
     <li>
-        <button name="b1" onclick="location.href ='login.jsp'">Click to login.</button>
-    </li>
-    <li>
-        <button name="b2" onclick="location.href ='signup.jsp'">Click to create an account.</button>
-    </li>
-    <li>
-        <button name="b3" onclick="location.href ='librarianLogin.jsp'">Librarian Login.</button>
+        <button name="b1" onclick="location.href ='index.jsp'">Click to logout.</button>
     </li>
 </ul>
 
@@ -129,23 +97,21 @@
                     "WHERE checked_out.checkout_date >= ( CURDATE() - INTERVAL 30 DAY ) AND checked_out.inventory_id = inventory.inventory_id AND inventory.ISBN = book.ISBN " +
                     "GROUP BY checked_out.inventory_id " +
                     "ORDER BY Total_Checked_Out desc LIMIT 3");
-            %>
+    %>
     <table>
         <tr><th>Title</th><th>Number Checked Out</th></tr>
-    <%
+        <%
             while(rs.next()){
-                %>
-            <tr><td> <%=rs.getString(1)%></td><td><%=rs.getInt(2)%></td></tr>
-    <%
+        %>
+        <tr><td> <%=rs.getString(1)%></td><td><%=rs.getInt(2)%></td></tr>
+        <%
             }
-            %>
+        %>
     </table>
-<%
-    con.close();
+    <%
+            con.close();
         }catch(Exception e){ out.println(e);}
     %>
-</h2>
-
 
 
 </body>
