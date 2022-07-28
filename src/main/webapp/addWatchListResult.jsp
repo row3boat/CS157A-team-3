@@ -11,11 +11,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Request Result</title>
+	<title>Watch List Result</title>
 </head>
 <body>
 
-<h1>Request Result:</h1>
+<h1>Watch List Result:</h1>
 <%
 	String user_id = (String)request.getSession().getAttribute("user_id");
 	String inventory_id = request.getParameter("inventory_id");
