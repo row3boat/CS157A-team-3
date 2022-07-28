@@ -25,7 +25,7 @@
    		       
 
 
-        PreparedStatement pst = con.prepareStatement("Select username,password from librarian where username=? and password=?");
+        PreparedStatement pst = con.prepareStatement("Select username,password,librarian_id from librarian where username=? and password=?");
 
         pst.setString(1, username);
         pst.setString(2, password);
@@ -34,8 +34,11 @@
         ResultSet rs = pst.executeQuery();  
    		       
 
-        if(rs.next())           
-           response.sendRedirect("librarianHomePage.jsp");        
+        if(rs.next()) {
+            response.sendRedirect("librarianHomePage.jsp");
+            session.setAttribute("username", username);
+            session.setAttribute("userid", rs.getString(3));
+        }
         else
            response.sendRedirect("ErrorMessage.jsp");     
    }

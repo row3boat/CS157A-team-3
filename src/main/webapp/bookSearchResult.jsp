@@ -74,6 +74,9 @@
 	{
 		out.println("SQLException caught: " +e.getMessage());
 	}
+
+
+
 %>
 
 <form action="bookSearch.jsp">

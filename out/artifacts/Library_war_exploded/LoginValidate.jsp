@@ -28,7 +28,7 @@
 
 
 
-        PreparedStatement pst = con.prepareStatement("Select username,password from user where username=? and password=?");
+        PreparedStatement pst = con.prepareStatement("Select username,password,user_id from user where username=? and password=?");
 
 
         pst.setString(1, username);

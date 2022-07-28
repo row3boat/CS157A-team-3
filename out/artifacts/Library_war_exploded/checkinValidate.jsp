@@ -31,7 +31,8 @@
         pst.executeUpdate();
 
         pst = con.prepareStatement("UPDATE transactions  " +
-                "SET user_id = ?, inventory_id=?, isCheckout = 0");
+                "SET isCheckout = 0 " +
+                "WHERE user_id=? AND inventory_id=?");
 
         pst.setInt(1, Integer.parseInt((String) session.getAttribute("userid")));
         pst.setInt(2, Integer.parseInt(inventory_id));

@@ -16,12 +16,12 @@
 <h1>Searching Books in Library Database</h1>
 
 
-<form action="bookSearchResult.jsp" method="GET">
+<form action="bookSearchResultCheckout.jsp" method="GET">
     Keyword: <input type="text" name="keyword">
     <input type="submit" value="Search" />
 </form>
 
-<form action="index.jsp">
+<form action="userHomePage.jsp">
     <input type="submit" value="Back" />
 </form>
 
