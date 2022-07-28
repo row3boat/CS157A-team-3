@@ -21,7 +21,7 @@
 	String keyword = request.getParameter("keyword");
 
 	String user = "root";
-	String password = "tonngoHOK.81";
+	String password = "root";
 
 	String db = "Library"; //or root
 	String url = "jdbc:mysql://localhost:3306/";
@@ -74,6 +74,9 @@
 	{
 		out.println("SQLException caught: " +e.getMessage());
 	}
+
+
+
 %>
 
 <form action="bookSearch.jsp">

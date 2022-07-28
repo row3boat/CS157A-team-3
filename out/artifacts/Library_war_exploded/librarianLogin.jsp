@@ -7,7 +7,7 @@
 <title>Login with JSP</title>
 </head>
 <body>
-	<form method="post" action="LoginValidate.jsp">
+	<form method="post" action="librarianLoginValidate.jsp">
 		<center>
 			<table border="1" cellpadding="5" cellspacing="2">
 				<thead>
@@ -22,7 +22,7 @@
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td><input type="password" name="password" required /></td>
+						<td><input type="text" name="password" required /></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center"><input type="submit"
