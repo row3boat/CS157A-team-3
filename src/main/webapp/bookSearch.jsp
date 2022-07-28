@@ -21,9 +21,16 @@ Keyword: <input type="text" name="keyword">
 <input type="submit" value="Search" />
 </form>
 
+<% if (session.getAttribute("userid") == null){ %>
 <form action="index.jsp">
 <input type="submit" value="Back" />
 </form>
-
+<% } else { %>
+<form action="userHomePage.jsp">
+<input type="submit" value="Back" />
+</form>
+    <%
+}
+%>
 </body>
 </html>
