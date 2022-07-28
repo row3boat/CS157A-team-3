@@ -35,27 +35,33 @@
 
 
 		Statement statement = connection.createStatement();
+		String select = "SELECT DISTINCT book.name, author.first_name, author.last_name, genre.genre_name, book.publish_date";
+		String from = "FROM Library.book, Library.genre, Library.author";
+		String where = "WHERE book.genre_id = genre.genre_id AND book.author_id = author.author_id" +
+						" AND (book.name LIKE '%" + keyword + "%'" +
+						" OR author.first_name LIKE '%" + keyword + "%'" +
+						" OR author.last_name LIKE '%" + keyword + "%'" +
+						" OR genre.genre_name = '%" + keyword + "%');";
 
-		String select = "DISTINCT *";
-		String from = "Library.book";
-		String where = "name LIKE '%" + keyword + "%'" +
-				" OR " + "genre LIKE '%" + keyword + "%'" +
-				" OR " + "author LIKE '%" + keyword + "%'";
-		String querySql = "SELECT " + select + " FROM " + from + " WHERE " + where + ";";
+				
+		String querySql = select + " " + from + " " + where;
+
 
 		ResultSet rs = statement.executeQuery(querySql);
 		boolean flag = false;
 
-
-		out.write("<table border=\"1\"><thead>" +
-				"<tr><td>Title</td><td>Genre</td><td>Author</td><td>Publish Date</td></tr></thead><tbody>");
-
 		while (rs.next())
 		{
-			out.write("<tr><td>" + rs.getString(2) + "</td><td>" + rs.getString(3) + "</td><td>" + rs.getString(4) + "</td><td>" + rs.getDate(5)+ "</td></tr>");
+			out.println("<b>" + rs.getString(1) + "</b><br>");
+			out.println(rs.getString(2) + " " + rs.getString(3) + "<br>");
+			out.println(rs.getString(4) + "<br>");
+			out.println(rs.getDate(5) + "<br>");
+			out.println ("<br><br>");
+			
+	
 			flag = true;
 		}
-		out.write("</tbody></table>");
+		
 
 		if (flag == false)
 		{

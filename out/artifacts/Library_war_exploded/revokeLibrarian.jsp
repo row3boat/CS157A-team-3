@@ -4,28 +4,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>sign-up with JSP</title>
+        <title>add librarian webpage</title>
     </head>
     <body>
-        <form method="post" action="signupValidate.jsp">
+        <form method="post" action="revokeLibrarianValidate.jsp">
             <center>
             <table border="1" cellpadding="5" cellspacing="2">
                 <thead>
                     <tr>
-                        <th colspan="2">Register Here</th>
+                        <th colspan="2">Input LibrarianID to delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Username</td>
-                        <td><input type="text" name="username" required/></td>
+                        <td>ID</td>
+                        <td><input type="number" name="LibrarianId" required/></td>
                     </tr>
+                    
                     <tr>
-                        <td>Password</td>
-                        <td><input type="text" name="password" required/></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" align="center"><input type="submit" value="Login" />
+                        <td colspan="1" align="center"><input type="submit" value="Login" />
                             &nbsp;&nbsp;
                           
                         </td>                        

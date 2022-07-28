@@ -51,7 +51,7 @@
 <br>
 <br>
 <form method="post" action="checkinValidate.jsp">
-    <label for = "checkin">Checkin using inventory ID:</label><br>
+    <label for = "checkin">Check in using inventory ID:</label><br>
     <input type = "text" id = "checkin" name = "inventoryid"><br>
     <input type = "submit" value = "Submit">
 </form>

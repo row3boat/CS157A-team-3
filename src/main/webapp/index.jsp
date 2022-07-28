@@ -14,7 +14,7 @@
         Class.forName("com.mysql.jdbc.Driver");
         final String url = "jdbc:mysql:///Library";
         final String user = "root";
-        final String password = "fb22abhinavindia#3";
+        final String password = "root";
 
         // establish the connection
         Connection con = DriverManager.getConnection(url, user, password);
