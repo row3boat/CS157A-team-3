@@ -1,7 +1,7 @@
 <%--
   Author: Lam Pham
   Date: 7/27/22
-  Time: 11:33 PM
+  Time: 11:45 PM
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,11 +11,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Search Result</title>
+	<title>Watch List</title>
 </head>
 <body>
 
-<h1>Search Results:</h1>
+<h1>Watch List:</h1>
 <%
 
 	String user_id = request.getParameter("user_id");
@@ -40,9 +40,6 @@
 		String where = "WHERE book.ISBN = inventory.ISBN AND inventory.inventory_id = watch_list.inventory_id" + 
 						" AND watch_list.user_id = user.user_id" +
 						" AND user.user_id = '" + user_id + "';";
-		
-
-
 				
 		String querySql = select + " " + from + " " + where;
 
@@ -56,7 +53,6 @@
 			out.println(rs.getString(2) + "<br>");
 			out.println("Number of copies: " + rs.getString(3) + "<br>");
 			out.println ("<br><br>");
-			
 	
 			flag = true;
 		}
