@@ -32,15 +32,14 @@
     <tr>
         <th>Title</th>
         <th>Date Checked Out</th>
-        <th>Check in Early</th></tr>
+        <th>Inventory ID</th></tr>
     <%
         while(rs.next()){
     %>
     <tr>
-        <td> <%=rs.getString(1) //title%></td>
-        <td><%=rs.getDate(2) //date checkedout%></td>
-        <td> <%=rs.getInt(3) //inventory id %></td>
-        <td><button onclick = "location.href = 'checkinValidate.jsp'">Checkin</button></td></tr>
+        <td> <%=rs.getString(1)%></td>
+        <td><%=rs.getDate(2)%></td>
+        <td> <%=rs.getInt(3)%></td></tr>
     <%
         }
     %>
@@ -49,6 +48,14 @@
         con.close();
     }catch(Exception e){ out.println(e);}
 %>
+<br>
+<br>
+<form method="post" action="checkinValidate.jsp">
+    <label for = "checkin">Check in using inventory ID:</label><br>
+    <input type = "text" id = "checkin" name = "inventoryid"><br>
+    <input type = "submit" value = "Submit">
+</form>
+
 
 </body>
 </html>
