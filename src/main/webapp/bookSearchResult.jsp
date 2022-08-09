@@ -41,7 +41,7 @@
 						" AND (book.name LIKE '%" + keyword + "%'" +
 						" OR author.first_name LIKE '%" + keyword + "%'" +
 						" OR author.last_name LIKE '%" + keyword + "%'" +
-						" OR genre.genre_name = '%" + keyword + "%');";
+						" OR genre.genre_name LIKE '%" + keyword + "%');";
 
 				
 		String querySql = select + " " + from + " " + where;
