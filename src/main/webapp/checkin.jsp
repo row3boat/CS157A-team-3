@@ -56,6 +56,9 @@
     <input type = "submit" value = "Submit">
 </form>
 
+<form action="userHomePage.jsp">
+    <input type="submit" value="Back" />
+</form>
 
 </body>
 </html>

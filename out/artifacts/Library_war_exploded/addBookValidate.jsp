@@ -47,7 +47,7 @@
     	   pst2.setInt(1,ISBN);
     	   int rs2 = pst2.executeUpdate();
     	   if(rs2 == 1)           
-               response.sendRedirect("librarianHomePage.jsp");        
+               response.sendRedirect("updateInventory.jsp");        
             else
                response.sendRedirect("ErrorMessage.jsp"); 
     	   
@@ -57,7 +57,7 @@
     	   pst3.setInt(1,ISBN);
     	   int rs3 = pst3.executeUpdate();
     	   if(rs3 == 1)           
-               response.sendRedirect("librarianHomePage.jsp");        
+               response.sendRedirect("updateInventory.jsp");        
             else
                response.sendRedirect("ErrorMessage.jsp"); 
     	   

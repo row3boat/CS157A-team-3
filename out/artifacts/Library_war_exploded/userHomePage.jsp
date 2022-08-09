@@ -72,6 +72,7 @@
 <h2>
     <button name="b1" class="search-button" onclick="location.href ='checkout.jsp'">Check out books.</button>
     <button name="b1" class="search-button" onclick="location.href ='checkin.jsp'">Check in books.</button>
+    <button name="b1" class="search-button" onclick="location.href ='requestBook.jsp'">Request books.</button>
 </h2>
 
 
