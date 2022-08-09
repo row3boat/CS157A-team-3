@@ -35,7 +35,7 @@
 
 
 		Statement statement = connection.createStatement();
-		String select = "SELECT DISTINCT book.name, author.first_name, author.last_name, genre.genre_name, book.publish_date";
+		String select = "SELECT DISTINCT book.name, author.first_name, author.last_name, genre.genre_name, book.publish_date,book.isbn";
 		String from = "FROM Library.book, Library.genre, Library.author";
 		String where = "WHERE book.genre_id = genre.genre_id AND book.author_id = author.author_id" +
 						" AND (book.name LIKE '%" + keyword + "%'" +
@@ -55,7 +55,8 @@
 			out.println("<b>" + rs.getString(1) + "</b><br>");
 			out.println(rs.getString(2) + " " + rs.getString(3) + "<br>");
 			out.println(rs.getString(4) + "<br>");
-			out.println(rs.getDate(5) + "<br>");
+			out.println("ISBN: " + rs.getInt(6) + "<br>");
+			out.println("Published: " + rs.getDate(5) + "<br>");
 			out.println ("<br><br>");
 			
 	

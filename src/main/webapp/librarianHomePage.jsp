@@ -3,15 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Librarian Home Page</title>
-</head>
 
+    <title>Librarian Home Page!</title>
+
+</head>
 <style>
     h1 {
         text-align: center;
     }
     h2{
+        text-align:center;
+    }
+
+    h3{
         text-align:center;
     }
 
@@ -65,23 +69,20 @@
 <body>
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 <h1>
-    <%= "Librarian Home Page!" %>
-</h1>
-<u1 class = "login">
-	<li>
-		<button name="b1"  onclick="location.href ='addBook.jsp'">Click to add a book to the database.</button>
-    </li>
-    <li>
-    	<button name="b2"  onclick="location.href ='deleteBook.jsp'">Click to delete a book from the database.</button>
-    </li>
-    <li>
-    <button name="b3"  onclick="location.href ='addLibrarian.jsp'">Click to add a new librarian.</button>
-    </li>
-    <li>
-    <button name="b4"  onclick="location.href ='revokeLibrarian.jsp'">Click to delete a librarian.</button>
-    </li>
-</u1>
-    
+    <%= "Welcome to Librarian Home Page, " + session.getAttribute("username") + "!" %>
+</>
 
+<h2>
+    <button name="b1" class="search-button" onclick="location.href ='addBook.jsp'">Add book.</button>
+    <button name="b1" class="search-button" onclick="location.href ='deleteBook.jsp'">Delete book.</button>
+    <button name="b1" class="search-button" onclick="location.href ='addLibrarian.jsp'">Add new Librarian.</button>
+    <button name="b1" class="search-button" onclick="location.href ='revokeLibrarian.jsp'">Remove Librarian.</button>
+</h2>
+
+<h3>
+    <br>
+    <button name="b1" onclick="location.href ='index.jsp'">Logout.</button>
+
+</h3>
 </body>
 </html>

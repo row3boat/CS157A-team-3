@@ -6,6 +6,15 @@
 <meta charset="ISO-8859-1">
 <title>delete Book webpage</title>
 </head>
+<style>
+  .logo{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<body>
+<img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 <body>
 <form method="post" action="deleteBookValidate.jsp">
 		<center>

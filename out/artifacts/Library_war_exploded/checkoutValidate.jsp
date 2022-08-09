@@ -59,8 +59,19 @@
                     pst.setInt(1, Integer.parseInt((String) session.getAttribute("userid")));
                     pst.setInt(2, isbnvalid.getInt(2));
                     pst.executeUpdate();
+                    response.sendRedirect("checkout.jsp");
+
                 } else {
                     out.println("Sorry, this book is out of stock.  Try putting it on your watch list.");
+                %>
+
+<form method="post" action="watchListResult.jsp">
+    <label for = "watchlist">Add to watchlist using ISBN:</label><br>
+    <input type = "text" id = "watchlist" name = "isbn"><br>
+    <input type = "submit" value = "Submit">
+</form>
+
+<%
                     return;
                 }
 
@@ -75,5 +86,9 @@
         out.println(e.getMessage());
     }
 %>
+
+<form action="checkout.jsp">
+    <input type="submit" value="Back" />
+</form>
 </body>
 </html>

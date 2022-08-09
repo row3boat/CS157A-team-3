@@ -41,7 +41,7 @@
         	int result = pst2.executeUpdate();
         	
         	if(result == 1)
-        		response.sendRedirect("librarianHomePage.jsp");
+        		response.sendRedirect("updateInventory.jsp");
         	else
         		response.sendRedirect("ErrorMessage.jsp");
        }
