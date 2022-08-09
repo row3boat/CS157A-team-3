@@ -6,6 +6,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>add librarian webpage</title>
     </head>
+    <style>
+  .logo{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<body>
+<img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
     <body>
         <form method="post" action="revokeLibrarianValidate.jsp">
             <center>
@@ -22,7 +31,7 @@
                     </tr>
                     
                     <tr>
-                        <td colspan="1" align="center"><input type="submit" value="Login" />
+                        <td colspan="1" align="center"><input type="submit" value="Delete" />
                             &nbsp;&nbsp;
                           
                         </td>                        
