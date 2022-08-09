@@ -31,7 +31,7 @@
         int result = pst.executeUpdate();  
    		
         if(result ==1){
-        	response.sendRedirect("librarianHomePage.jsp");
+        	response.sendRedirect("addLibrarianConfirmation.jsp");
         }
         else{
         	response.sendRedirect("ErrorMessage.jsp");

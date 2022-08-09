@@ -36,7 +36,7 @@
         	pst2.setInt(1,librarianId);
         	int rs2 = pst2.executeUpdate();
         	if(rs2 == 1)           
-                response.sendRedirect("librarianHomePage.jsp");        
+                response.sendRedirect("revokeLibrarianConfirmation.jsp");        
              else
                 response.sendRedirect("ErrorMessage.jsp");
         }
