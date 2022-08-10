@@ -42,7 +42,7 @@
         Class.forName("com.mysql.jdbc.Driver");
         connection = DriverManager.getConnection(url + db, user, password);
 
-
+        Statement statement = connection.createStatement();
         String select = "SELECT DISTINCT book.name, author.name, genre.genre_name, book.ISBN, book.publish_date";
 
         String from = "FROM Library.book, Library.genre, Library.author";
