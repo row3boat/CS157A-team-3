@@ -110,7 +110,7 @@
 
 %>
 
-<form action="searchBook.jsp">
+<form action="bookSearch.jsp">
 	<input type="submit" value="Back" />
 </form>
 

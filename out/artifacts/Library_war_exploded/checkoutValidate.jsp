@@ -65,7 +65,7 @@
                     out.println("Sorry, this book is out of stock.  Try putting it on your watch list.");
                 %>
 
-<form method="post" action="watchListResult.jsp">
+<form method="post" action="addWatchListResult.jsp">
     <label for = "watchlist">Add to watchlist using ISBN:</label><br>
     <input type = "text" id = "watchlist" name = "isbn"><br>
     <input type = "submit" value = "Submit">
@@ -83,7 +83,7 @@
     }
     }
     catch(SQLException e){
-        out.println(e.getMessage());
+        out.println("Sorry, book not available.");
     }
 %>
 
