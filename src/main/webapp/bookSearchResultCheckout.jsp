@@ -14,14 +14,15 @@
     <title>Search Result</title>
 </head>
 <style>
+
     .logo{
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
 </style>
-<img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 <body>
+<img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 
 <h1>Search Results:</h1>
 <%
@@ -42,7 +43,6 @@
         connection = DriverManager.getConnection(url + db, user, password);
 
 
-        Statement statement = connection.createStatement();
         String select = "SELECT DISTINCT book.name, author.name, genre.genre_name, book.ISBN, book.publish_date";
 
         String from = "FROM Library.book, Library.genre, Library.author";
@@ -60,6 +60,7 @@
 
         while (rs.next())
         {
+
             out.println("<b>" + rs.getString(1) + "</b><br>");
             out.println("Author: " + rs.getString(2) + "<br>");
             out.println("Genre: " + rs.getString(3) + "<br>");
@@ -72,7 +73,7 @@
 
         if (flag == false)
         {
-            out.println ("N/A");
+            out.println ("Not Available");
         }
 
         connection.close();
