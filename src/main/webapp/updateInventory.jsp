@@ -1,21 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-
-    <title>Librarian Home Page!</title>
-
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <style>
     h1 {
         text-align: center;
     }
     h2{
-        text-align:center;
-    }
-
-    h3{
         text-align:center;
     }
 
@@ -69,20 +65,54 @@
 <body>
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 <h1>
-    <%= "Welcome to Librarian Home Page, " + session.getAttribute("username") + "!" %>
-</>
+<%= "Book has successfully been added. Current Inventory is as Follows:" %>
+</h1>
+<ul class="login">
+    <li>
+        <button name="b1" onclick="location.href ='librarianHomePage.jsp'">Click to go back to Librarian home page.</button>
+    </li>
+<h2> Current Inventory
+	<% 
+		try{
+		 Class.forName("com.mysql.jdbc.Driver");
+		 final String url = "jdbc:mysql:///library";
+	        final String user = "root";
+	        final String password1 = "fb22abhinavindia#3";
 
-<h2>
-    <button name="b1" class="search-button" onclick="location.href ='addBook.jsp'">Add book.</button>
-    <button name="b1" class="search-button" onclick="location.href ='deleteBook.jsp'">Delete book.</button>
-    <button name="b1" class="search-button" onclick="location.href ='addLibrarian.jsp'">Add new Librarian.</button>
-    <button name="b1" class="search-button" onclick="location.href ='revokeLibrarian.jsp'">Remove Librarian.</button>
+	   		      
+
+	        // establish the connection
+	        Connection con = DriverManager.getConnection(url, user, password1); 
+            Statement stmt=con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM inventory");
+		%>
+	<table>
+           <tr><th>Inventory ID</th><th>ISBN</th><th>Number of Copies</th></tr>
+     <%
+            while(rs.next()){
+                %>
+            <tr><td> <%=rs.getInt(1)%></td><td><%=rs.getInt(2)%></td><td><%=rs.getInt(3)%></td></tr>
+    <%
+            }
+            %>
+         </table>
+
+<% 
+		}catch(SQLException e){       
+	out.println(e.getMessage());   
+}
+%>
+
 </h2>
 
-<h3>
-    <br>
-    <button name="b1" onclick="location.href ='index.jsp'">Logout.</button>
 
-</h3>
+
+
+
+
+
+
+
+
 </body>
 </html>

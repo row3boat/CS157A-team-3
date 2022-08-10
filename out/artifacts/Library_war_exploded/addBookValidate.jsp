@@ -49,11 +49,17 @@
     	   if(rs2 == 1)           
                response.sendRedirect("updateInventory.jsp");        
             else
-               response.sendRedirect("addBookErrorMessage.jsp"); 
+               response.sendRedirect("ErrorMessage.jsp"); 
     	   
        }
        else{
-               response.sendRedirect("addBookErrorMessage.jsp"); 
+    	   PreparedStatement pst3 = con3.prepareStatement(addQuery);
+    	   pst3.setInt(1,ISBN);
+    	   int rs3 = pst3.executeUpdate();
+    	   if(rs3 == 1)           
+               response.sendRedirect("updateInventory.jsp");        
+            else
+               response.sendRedirect("ErrorMessage.jsp"); 
     	   
        }
 	}

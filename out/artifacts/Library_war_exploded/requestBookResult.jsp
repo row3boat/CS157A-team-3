@@ -13,20 +13,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Request Result</title>
 </head>
-<style>
-  .logo{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
 <body>
-<img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
+
 <h1>Request Result:</h1>
 <%
 	String user_id = (String)request.getSession().getAttribute("userid");
 	String isbn = request.getParameter("ISBN");
-	
+
 	String user = "root";
 	String password = "root";
 

@@ -12,7 +12,11 @@
         
 
         Class.forName("com.mysql.jdbc.Driver");        
-        final String url = "jdbc:mysql:///Library";
+
+
+              
+        final String url = "jdbc:mysql:///library";
+
         final String user = "root";
         final String password1 = "root";
 
@@ -22,7 +26,11 @@
         Connection con = DriverManager.getConnection(url, user, password1);   
    		       
 
-        PreparedStatement pst = con.prepareStatement("Select username,password,user_id from Library.user where username=? and password=?");
+
+
+        PreparedStatement pst = con.prepareStatement("Select username,password,user_id from user where username=? and password=?");
+
+
         pst.setString(1, username);
         pst.setString(2, password);
 

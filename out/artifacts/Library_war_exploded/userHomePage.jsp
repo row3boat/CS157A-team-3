@@ -66,11 +66,13 @@
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 <h1>
     <%= "Welcome to eLib, " + session.getAttribute("username") + "!" %>
+    <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Search all books.</button>
 </>
 
 <h2>
-    <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Click to checkout books.</button>
-    <button name="b1" class="search-button" onclick="location.href ='checkin.jsp'">Click to view your books.</button>
+    <button name="b1" class="search-button" onclick="location.href ='checkout.jsp'">Check out books.</button>
+    <button name="b1" class="search-button" onclick="location.href ='checkin.jsp'">Check in books.</button>
+    <button name="b1" class="search-button" onclick="location.href ='requestBook.jsp'">Request books.</button>
 </h2>
 
 

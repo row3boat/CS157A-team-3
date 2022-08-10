@@ -28,21 +28,36 @@
         pst.setString(2, password);
    		       
 
-        int result = pst.executeUpdate();  
-   		
+        int result = pst.executeUpdate();
+
+
+
+
         if(result ==1){
-        	response.sendRedirect("backToHomePage.jsp");
+
+            pst = con.prepareStatement("Select username,password,user_id from user where username=? and password=?");
+
+            pst.setString(1, username);
+            pst.setString(2, password);
+
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()) {
+                response.sendRedirect("userHomePage.jsp");
+                session.setAttribute("username",username);
+                session.setAttribute("userid", rs.getString(3));
+            }
+            else {
+                response.sendRedirect("ErrorMessage.jsp");
+            }
         }
         else{
         	response.sendRedirect("ErrorMessage.jsp");
         }
-
-
-                 
    }
    catch(SQLException e){     
-	   response.sendRedirect("ErrorMessage.jsp");
-   		//out.println(e.getMessage());       
+//	   response.sendRedirect("ErrorMessage.jsp");
+   		out.println(e.getMessage());
    }  
 %>
  </body>

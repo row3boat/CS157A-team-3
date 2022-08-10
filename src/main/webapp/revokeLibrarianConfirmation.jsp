@@ -3,19 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <title>Librarian Home Page!</title>
-
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <style>
     h1 {
         text-align: center;
     }
     h2{
-        text-align:center;
-    }
-
-    h3{
         text-align:center;
     }
 
@@ -69,20 +64,14 @@
 <body>
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 <h1>
-    <%= "Welcome to Librarian Home Page, " + session.getAttribute("username") + "!" %>
-</>
+<%= "Librarian has successfully been deleted. Their credential no longer work!" %>
+</h1>
+<ul class="login">
+    <li>
+        <button name="b1" onclick="location.href ='librarianHomePage.jsp'">Click to go back to Librarian home page.</button>
+    </li>
+<h2> 
+<body>
 
-<h2>
-    <button name="b1" class="search-button" onclick="location.href ='addBook.jsp'">Add book.</button>
-    <button name="b1" class="search-button" onclick="location.href ='deleteBook.jsp'">Delete book.</button>
-    <button name="b1" class="search-button" onclick="location.href ='addLibrarian.jsp'">Add new Librarian.</button>
-    <button name="b1" class="search-button" onclick="location.href ='revokeLibrarian.jsp'">Remove Librarian.</button>
-</h2>
-
-<h3>
-    <br>
-    <button name="b1" onclick="location.href ='index.jsp'">Logout.</button>
-
-</h3>
 </body>
 </html>

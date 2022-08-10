@@ -14,7 +14,7 @@
         Class.forName("com.mysql.jdbc.Driver");
         final String url = "jdbc:mysql:///Library";
         final String user = "root";
-        final String password = "fb22abhinavindia#3";
+        final String password = "root";
 
         // establish the connection
         Connection con = DriverManager.getConnection(url, user, password);
@@ -95,20 +95,20 @@
 <img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 <h1>
     <%= "Welcome to eLib" %>
-    <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Click to search books in stock.
+    <button name="b1" class="search-button" onclick="location.href ='bookSearch.jsp'">Search all books.
     </button>
 </h1>
 
 
 <ul class="login">
     <li>
-        <button name="b1" onclick="location.href ='login.jsp'">Click to login.</button>
+        <button name="b1" onclick="location.href ='login.jsp'">Login</button>
     </li>
     <li>
-        <button name="b2" onclick="location.href ='signup.jsp'">Click to create an account.</button>
+        <button name="b2" onclick="location.href ='signup.jsp'">Create account</button>
     </li>
     <li>
-        <button name="b3" onclick="location.href ='librarianLogin.jsp'">Librarian Login.</button>
+        <button name="b3" onclick="location.href ='librarianLogin.jsp'">Librarian Login</button>
     </li>
 </ul>
 
@@ -135,7 +135,10 @@
     <%
             while(rs.next()){
                 %>
-            <tr><td> <%=rs.getString(1)%></td><td><%=rs.getInt(2)%></td></tr>
+            <tr>
+                <td> <%=rs.getString(1)%></td>
+                <td><%=rs.getInt(2)%></td>
+            </tr>
     <%
             }
             %>

@@ -1,7 +1,7 @@
 <%--
   Author: Lam Pham
-  Date: 7/4/22
-  Time: 4:16 PM
+  Date: 7/27/22
+  Time: 11:45 PM
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,14 +11,14 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Search Result</title>
+	<title>Watch List</title>
 </head>
 <body>
 
-<h1>Search Results:</h1>
+<h1>Watch List:</h1>
 <%
 
-	String keyword = request.getParameter("keyword");
+	String user_id = request.getParameter("user_id");
 
 	String user = "root";
 	String password = "root";
@@ -35,14 +35,11 @@
 
 
 		Statement statement = connection.createStatement();
-		String select = "SELECT DISTINCT book.name, author.first_name, author.last_name, genre.genre_name, book.publish_date,book.isbn";
-		String from = "FROM Library.book, Library.genre, Library.author";
-		String where = "WHERE book.genre_id = genre.genre_id AND book.author_id = author.author_id" +
-						" AND (book.name LIKE '%" + keyword + "%'" +
-						" OR author.first_name LIKE '%" + keyword + "%'" +
-						" OR author.last_name LIKE '%" + keyword + "%'" +
-						" OR genre.genre_name = '%" + keyword + "%');";
-
+		String select = "SELECT book.name, book.ISBN, inventory.number_of_copies";
+		String from = "FROM Library.book, Library.inventory, Library.watch_list, Library.user";
+		String where = "WHERE book.ISBN = inventory.ISBN AND inventory.inventory_id = watch_list.inventory_id" + 
+						" AND watch_list.user_id = user.user_id" +
+						" AND user.user_id = '" + user_id + "';";
 				
 		String querySql = select + " " + from + " " + where;
 
@@ -53,12 +50,9 @@
 		while (rs.next())
 		{
 			out.println("<b>" + rs.getString(1) + "</b><br>");
-			out.println(rs.getString(2) + " " + rs.getString(3) + "<br>");
-			out.println(rs.getString(4) + "<br>");
-			out.println("ISBN: " + rs.getInt(6) + "<br>");
-			out.println("Published: " + rs.getDate(5) + "<br>");
+			out.println(rs.getString(2) + "<br>");
+			out.println("Number of copies: " + rs.getString(3) + "<br>");
 			out.println ("<br><br>");
-			
 	
 			flag = true;
 		}
@@ -75,9 +69,6 @@
 	{
 		out.println("SQLException caught: " +e.getMessage());
 	}
-
-
-
 %>
 
 <form action="bookSearch.jsp">

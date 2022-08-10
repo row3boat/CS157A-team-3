@@ -65,6 +65,7 @@
 
 		Statement statement = connection.createStatement();
 		String select = "SELECT DISTINCT book.name, author.name, genre.genre_name, book.ISBN, book.publish_date";
+
 		String from = "FROM Library.book, Library.genre, Library.author";
 		String where = "WHERE book.genre_id = genre.genre_id AND book.author_id = author.author_id" +
 						" AND (book.name LIKE '%" + keyword + "%'" +
@@ -84,6 +85,7 @@
 			out.println("Author: " + rs.getString(2) + "<br>");
 			out.println("Genre: " + rs.getString(3) + "<br>");
 			out.println ("ISBN: " + rs.getInt(4) + "<br>");
+
 			out.println("Published: " + rs.getDate(5) + "<br>");
 			out.println ("<br><br>");
 			
@@ -103,6 +105,9 @@
 	{
 		out.println("SQLException caught: " +e.getMessage());
 	}
+
+
+
 %>
 
 <form action="searchBook.jsp">
