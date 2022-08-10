@@ -34,12 +34,12 @@
         	response.sendRedirect("addLibrarianConfirmation.jsp");
         }
         else{
-        	response.sendRedirect("ErrorMessage.jsp");
+        	response.sendRedirect("addLibrarianErrorMessage.jsp");
         }
 	
 	}
 catch(SQLException e){     
-	   response.sendRedirect("ErrorMessage.jsp");
+	   response.sendRedirect("addLibrarianErrorMessage.jsp");
 		//out.println(e.getMessage());       
 }  
 

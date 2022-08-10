@@ -32,19 +32,23 @@
         pst.setInt(1,ISBN);
         
         ResultSet rs = pst.executeQuery();
-        rs.next();
-        if(rs.getInt(1) <= 0)
-        	response.sendRedirect("ErrorMessage.jsp");
-        else{
-        	PreparedStatement pst2 = con2.prepareStatement(updateQuery);
-        	pst2.setInt(1,ISBN);
-        	int result = pst2.executeUpdate();
+        if(rs.next()){
+        	if(rs.getInt(1) <= 0)
+        		response.sendRedirect("deleteBookErrorMessage.jsp");
+      	  else{
+        		PreparedStatement pst2 = con2.prepareStatement(updateQuery);
+        		pst2.setInt(1,ISBN);
+        		int result = pst2.executeUpdate();
         	
-        	if(result == 1)
-        		response.sendRedirect("updateInventory.jsp");
-        	else
-        		response.sendRedirect("ErrorMessage.jsp");
-       }
+        		if(result == 1)
+        			response.sendRedirect("updateInventory.jsp");
+        		else
+        		response.sendRedirect("deleteBookErrorMessage.jsp");
+       		}
+        }else{
+        	response.sendRedirect("deleteBookErrorMessage.jsp");
+        }
+        	
 	}
 catch(SQLException e){       
 		out.println(e.getMessage());   

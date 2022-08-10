@@ -38,10 +38,10 @@
         	if(rs2 == 1)           
                 response.sendRedirect("revokeLibrarianConfirmation.jsp");        
              else
-                response.sendRedirect("ErrorMessage.jsp");
+                response.sendRedirect("revokeLibrarianErrorMessage.jsp");
         }
         else
-            response.sendRedirect("ErrorMessage.jsp");
+            response.sendRedirect("revokeLibrarianErrorMessage.jsp");
 
 	}
 catch(SQLException e){       
