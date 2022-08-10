@@ -1,36 +1,41 @@
-<%--
-  Author: Lam Pham
-  Date: 7/4/22
-  Time: 4:16 PM
---%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %> <html>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Searching Book</title>
+<meta charset="ISO-8859-1">
+<title>Search Book</title>
 </head>
+<style>
+  .logo{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 <body>
-<h1>Searching Books in Library Database</h1>
-
-
-<form action="bookSearchResult.jsp" method="GET">
-Keyword: <input type="text" name="keyword">
-<input type="submit" value="Search" />
-</form>
-
-<% if (session.getAttribute("userid") == null){ %>
-<form action="index.jsp">
-<input type="submit" value="Back" />
-</form>
-<% } else { %>
-<form action="userHomePage.jsp">
-<input type="submit" value="Back" />
-</form>
-    <%
-}
-%>
+<img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
+<form method="post" action="bookSearchResult.jsp">
+		<center>
+			<table border="1" cellpadding="5" cellspacing="2">
+				<thead>
+					<tr>
+						<th colspan="2">Input keyword to search</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Keyword</td>
+						<td><input type= "text" name="keyword" required /></td>
+					</tr>
+					
+					<tr>
+						<td colspan="1" align="center"><input type="submit"
+							value="Search" /> &nbsp;&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+		</center>
+	</form>
 </body>
 </html>

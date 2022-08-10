@@ -11,22 +11,15 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Request Result</title>
+	<title>Watch List Result</title>
 </head>
-<style>
-  .logo{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
 <body>
-<img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
-<h1>Request Result:</h1>
+
+<h1>Watch List Result:</h1>
 <%
-	String user_id = (String)request.getSession().getAttribute("userid");
-	String isbn = request.getParameter("ISBN");
-	
+	String user_id = (String)request.getSession().getAttribute("user_id");
+	String inventory_id = request.getParameter("inventory_id");
+
 	String user = "root";
 	String password = "root";
 
@@ -40,21 +33,23 @@
 		Class.forName("com.mysql.jdbc.Driver");
 		connection = DriverManager.getConnection(url + db, user, password);
 
-
+		
 		Statement statement = connection.createStatement();
-		String insertInto = "INSERT INTO Library.request (user_id, ISBN)";
-		String value = "VALUES ('" + user_id + "', '" + isbn + "');";
+		String insertInto = "INSERT INTO Library.watch_list (user_id, inventory_id)";
+		String value = "VALUES ('" + user_id + "', '" + inventory_id + "');";
 		
 		String insertInstruction = insertInto + " " + value;
+		
+		
 		
 		PreparedStatement pst = connection.prepareStatement(insertInstruction);
 		int rs = pst.executeUpdate();
 		
 		if (rs == 1)
-			out.println ("Succesfully requested ISBN: " + isbn + "<br><br>");
+			out.println ("Succesfully added to Watch List<br><br>");
 		
 		else
-			out.println ("Requested Unsuccesfully!<br><br>");
+			out.println ("Added Unsuccesfully!<br><br>");
 
 
 		connection.close();
@@ -65,7 +60,7 @@
 	}
 %>
 
-<form action="requestBook.jsp">
+<form action="addWatchList.jsp">
 	<input type="submit" value="Back" />
 </form>
 
