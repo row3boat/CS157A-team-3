@@ -1,31 +1,49 @@
-<%--
-  Author: Lam Pham
-  Date: 7/28/22
-  Time: 8:00 AM
---%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %> <html>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="ISO-8859-1">
 <title>Request Book</title>
 </head>
+<style>
+  .logo{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 <body>
-<h1>Request Book</h1>
+<img class= "logo" src="https://i.imgur.com/U1itnl6.jpeg" alt="SJSU Library" width="500" height="100">
 
 <%
 	String user_id = request.getParameter ("user_id");
 	request.getSession().setAttribute("user_id", user_id);
 %>
 
-<form action="requestBookResult.jsp" method="GET">
-ISBN: <input type="text" name="ISBN">
-<input type="submit" value="Request" />
-</form>
-
-<% if (session.getAttribute("userid") == null){ %>
+<form method="post" action="requestBookResult.jsp">
+		<center>
+			<table border="1" cellpadding="5" cellspacing="2">
+				<thead>
+					<tr>
+						<th colspan="2">Input ISBN to request</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>ISBN</td>
+						<td><input type= "text" name="ISBN" required /></td>
+					</tr>
+					
+					<tr>
+						<td colspan="1" align="center"><input type="submit"
+							value="Request" /> &nbsp;&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+		</center>
+	</form>
+<% if (session.getAttribute("user_id") == null){ %>
 <form action="index.jsp">
 <input type="submit" value="Back" />
 </form>

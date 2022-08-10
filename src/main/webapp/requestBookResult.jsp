@@ -61,7 +61,7 @@
 	}
 	catch(SQLException e)
 	{
-		out.println("SQLException caught: " +e.getMessage());
+		out.println("Oops!  You have already requested this book.  Please select another book to request.");
 	}
 %>
 

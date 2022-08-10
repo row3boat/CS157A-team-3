@@ -56,9 +56,8 @@
         }
    }
    catch(SQLException e){     
-//	   response.sendRedirect("ErrorMessage.jsp");
-   		out.println(e.getMessage());
-   }  
+	   response.sendRedirect("ErrorMessage.jsp");
+   }
 %>
  </body>
  </html>
