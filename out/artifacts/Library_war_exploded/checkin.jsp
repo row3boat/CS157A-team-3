@@ -13,6 +13,65 @@
 </head>
 <body>
 
+<style>
+    h1 {
+        text-align: center;
+    }
+    h2{
+        text-align:center;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    div {
+        text-align: center;
+    }
+
+    button {
+        background-color: gray; /* Green */
+        border: 2px solid black;
+        color: white;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        width: 20%;
+    }
+
+    table,th,td{
+        border:1px solid black;
+        text-align:center;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: green;
+        color:white;
+        font-size: 16px;
+        text-decoration: none;
+        width: 20%;
+    }
+
+    .login {
+        list-style-type: none;
+        text-align: center;
+        margin: auto;
+    }
+
+    .search-button {
+        background-color: green;
+    }
+    .logo{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-design{
+        text-align: center;
+    }
+</style>
+<h1>Currently Checked Out Books: </h1>
 <%
     try{
         Class.forName("com.mysql.jdbc.Driver");
@@ -50,14 +109,14 @@
 %>
 <br>
 <br>
-<form method="post" action="checkinValidate.jsp">
-    <label for = "checkin">Check in using inventory ID:</label><br>
+<form method="post" action="checkinValidate.jsp" class="form-design">
+    <label for = "checkin"> Check in using inventory ID:</label><br>
     <input type = "text" id = "checkin" name = "inventoryid"><br>
-    <input type = "submit" value = "Submit">
+    <input type = "submit" value = "Submit" class="search-button">
 </form>
 
-<form action="userHomePage.jsp">
-    <input type="submit" value="Back" />
+<form action="userHomePage.jsp" class="form-design" >
+    <input type="submit" value="Back" class = "search-button"/>
 </form>
 
 </body>
